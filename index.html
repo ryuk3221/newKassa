@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+    <div class="header">KUCHIS COFFEE</div>
+    <div class="container">
+      <div class="goods">
+        <div class="input-label">
+          <input class="search" type="text" placeholder="Search..." onkeyup="filter()">
+        </div>
+        <div class="filter__btns">
+          <button class="filter__button" data-filter="all">Вси позиции</button>
+          <button class="filter__button" data-filter=".category-hot">Горячие напитки</button>
+          <button class="filter__button" data-filter=".category-cold">Холодные напитки</button>
+          <button class="filter__button">Сладости</button>
+          <button class="filter__button">Еда EVA</button>
+          <button class="filter__button">Еда PONT</button>
+        </div>
+        <div class="goods__inner">
+          <div class="goods__item mix category-hot">Капучино 300мл</div>
+          <div class="goods__item mix category-hot">Капучино 400мл</div>
+          <div class="goods__item mix category-hot">Латте 300мл</div>
+          <div class="goods__item mix category-hot">Латте 400мл</div>
+          <div class="goods__item mix category-hot">Какао 200мл</div>
+          <div class="goods__item mix category-hot">Какао 300мл</div>
+          <div class="goods__item mix category-hot">Какао 400мл</div>
+          <div class="goods__item mix category-hot">Американо 200мл</div>
+          <div class="goods__item mix category-hot">Американо 300мл</div>
+          <div class="goods__item mix category-hot">Флэт 200мл</div>
+          <div class="goods__item mix category-cold">Аква</div>
+          <div class="goods__item mix category-cold">Кока кола ж/б</div>
+          <div class="goods__item mix category-cold">Лимонад</div>
+          <div class="goods__item mix category-cold">Айс-Латте</div>
+          <div class="goods__item mix category-cold">Эспрессо-Тоник</div>
+        </div>
+      </div>
+    </div>
+    <div class="chek">
+      <h2 class="chek-title">Чек</h2>
+      <ul class="myUl">
+
+      </ul>
+      <button class="add-debit">Банковаская карта</button>
+      <p class="show-sum-chek">Сумма чека : <span class="sum-chek"></span></p>
+    </div>
+    <script src="jquery-3.6.1.min.js"></script>
+    <script src="mixitup.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

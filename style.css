@@ -1,0 +1,104 @@
+*{
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+  font-weight: 400;
+}
+body{
+  margin: 0;
+  padding: 0;
+  background-color: aliceblue;
+}
+.container{
+  max-width: 1200px;
+  background-color:aliceblue;
+  padding: 20px;
+}
+.header{
+  font-size: 50px;
+  font-weight: 700;
+  color: rgb(82, 34, 128);
+  background-color: rgb(159, 168, 175);
+  padding: 20px;
+}
+.chek-title{
+  margin: 0;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 40px;
+  font-weight: 500;
+}
+.chek{
+  position: fixed;
+  width: 720px;
+  background-color:aliceblue;
+  height: 868px;
+  top: 101px;
+  right: 0;
+  border-left: 4px solid black;
+}
+input{
+  border: none;
+  padding: 15px;
+  border-bottom: 2px solid black;
+  display: block;
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 50px;
+}
+input::placeholder{
+  font-family: "Montserrat";
+  font-size: 18px;
+  font-weight: 500;
+}
+.goods__inner{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 35px;
+}
+.goods__item{
+  font-size: 20px;
+  font-weight: 500;
+  width: 230px;
+  height: 70px;
+  border: 2px solid black;
+  padding: 10px 0 0 10px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.chek__item{
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 0 5px 10px;
+  position: relative;
+}
+.chek__item span{
+  position: absolute;
+  left: 250px;
+}
+.show-sum-chek{
+  position: absolute;
+  bottom: 150px;
+  left: 10px;
+  font-size: 30px;
+  font-weight: 500;
+}
+.filter__btns{
+  display: flex;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+.filter__button{
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 7px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer
+  ;
+}
+.mixitup-control-active{
+  border-bottom: 2px solid black;
+}
