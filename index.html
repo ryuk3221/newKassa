@@ -49,8 +49,19 @@
       <ul class="myUl">
 
       </ul>
-      <button class="add-debit">Банковаская карта</button>
+    
       <p class="show-sum-chek">Сумма чека : <span class="sum-chek"></span></p>
+      <button class="add-debit">Банковаская карта</button>
+      <button class="add-cash">Наличные</button>
+      <button class="otchet-btn" onclick="showModal()">Отчёт</button>
+    </div>
+    <div class="modal">
+      <div class="modal-otchet">
+        <h1 class="modal-otchet__title">Отчёт по смене</h1>
+        <p class="modal-otchet__itog-nal">Наличные : <span class="itog-nal"></span></p>
+        <p class="modal-otchet__itog-nal">Банковаская карта : <span></span></p>
+      </div>
+      <button class="modal-otchet__button-close" onclick="closeModal()">Закрыть</button>
     </div>
     <script src="jquery-3.6.1.min.js"></script>
     <script src="mixitup.min.js"></script>

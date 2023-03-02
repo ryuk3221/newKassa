@@ -1,4 +1,7 @@
 var chek = {};
+var allCheks = {};
+var goodsForOtchet = {};
+let chekItemsNal = [];
 var myUl = document.querySelector('.myUl');
 var price = {
   'Капучино 300мл': 200,
@@ -33,7 +36,6 @@ window.onload = function(){
 function addElementInCkek(){
   let element = this;
   let name = element.innerHTML;   //наименование товара
-  console.log(element);
   let quany = 1;    //количество
   if (chek[name] != undefined){
     chek[name] += 1;
@@ -73,7 +75,6 @@ function filter(){
   const myInput = document.querySelector('.search');
   let value = myInput.value.toUpperCase();
   const goodsItem = document.getElementsByClassName('goods__item');
-  console.log(goodsItem)
   for (let i of goodsItem){
     if (i.innerHTML.toUpperCase().indexOf(value) !== -1){
       i.style.display = '';
@@ -87,7 +88,58 @@ function filter(){
 $(function(){
   var mixer = mixitup('.goods__inner',{
     animation: {
-      duration: 300
+      duration: 150
     }
   });
 });
+
+const addCashBtn = document.querySelector('.add-cash');
+const addDebitBtn = document.querySelector('.add-debit');
+
+addCashBtn.onclick = addCash;
+addDebitBtn.onclick = addDebit;
+
+
+
+function addCash(){
+  let showItogNal = document.querySelector('.itog-nal');
+  let sumChek = document.querySelector('.sum-chek').innerHTML;
+  sumChek = Number(sumChek);
+  chekItemsNal.push(sumChek);
+  let sum = 0;
+  chekItemsNal.forEach((s) => {
+    sum += s;
+  });
+  showItogNal.innerHTML = sum;
+  myUl.innerHTML = '';
+  document.querySelector('.sum-chek').innerHTML = '';
+  addGoodsForOtchet();//добавил все позиции в обьект для отчета по блюдам
+  chek = {};//отчистил чек/корзину
+}
+
+function addGoodsForOtchet(){
+  for(let i in chek){
+    //пробегаюсь по обьекту чека/корзины и добавляю в главный обьект
+    if (goodsForOtchet[i] != undefined){
+      //если в глобальном обьекте уже существует позиция, то прибавляю количество
+      goodsForOtchet[i] += chek[i];
+    }
+    else{
+      goodsForOtchet[i] = chek[i];
+    }
+  }
+  // for (let k in goods){
+  //   console.log(`${k} - ${goods[k]}`)
+  // }
+  console.log(chek)
+  console.log(goodsForOtchet)
+}
+
+function showModal(){
+  let modal = document.querySelector('.modal');
+  modal.style.display = 'block';
+}
+
+function closeModal(){
+  document.querySelector('.modal').style.display = 'none';
+}

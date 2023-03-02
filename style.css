@@ -28,7 +28,7 @@ body{
   font-weight: 500;
 }
 .chek{
-  position: fixed;
+  position: absolute;
   width: 720px;
   background-color:aliceblue;
   height: 868px;
@@ -79,7 +79,7 @@ ul {
 }
 .show-sum-chek{
   position: absolute;
-  bottom: 150px;
+  bottom: 100px;
   left: 10px;
   font-size: 30px;
   font-weight: 500;
@@ -101,4 +101,48 @@ ul {
 }
 .mixitup-control-active{
   border-bottom: 2px solid black;
+}
+
+.add-debit{
+  display:inline-block;
+  width: 230px;
+  padding: 15px 10px;
+  position: absolute;
+  bottom: 20px;
+  font-size: 20px;
+  left: 10px;
+}
+.add-cash{
+  display:inline-block;
+  width: 230px;
+  padding: 15px 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 270px;
+  font-size: 20px;
+}
+.modal{
+  position: fixed;
+  width: 720px;
+  background-color:rgb(191, 159, 204);
+  height: 868px;
+  top: 101px;
+  right: 0;
+  border-left: 4px solid black;
+  display: none;
+}
+.modal-otchet__title{
+  text-align: center;
+  padding: 10px 0;
+  font-size: 40px;
+  font-weight: 500
+}
+.otchet-btn{
+  display:inline-block;
+  width: 160px;
+  padding: 15px 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 530px;
+  font-size: 20px;
 }
