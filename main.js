@@ -1,7 +1,8 @@
-var chek = {};
-var allCheks = {};
-var goodsForOtchet = {};
-let chekItemsNal = [];
+var chek = {};//корзина/чек
+var allCheks = {};//обьект для отчета по чекам
+var goodsForOtchet = {}//для отчета по блюдам
+let chekItemsNal = [];//суммы всех закрытых чеков (нал)
+let chekItemsDebit = [];//сумм всех закрытых чеков (безнал)
 var myUl = document.querySelector('.myUl');
 var price = {
   'Капучино 300мл': 200,
@@ -99,18 +100,39 @@ const addDebitBtn = document.querySelector('.add-debit');
 addCashBtn.onclick = addCash;
 addDebitBtn.onclick = addDebit;
 
+function addDebit(){
+  //элемент для отображения итога за смену (банковская карта)
+  let showItogDebit = document.querySelector('.itog-debit');
+  //элемент который транслирует итоговую сумму чека
+  let sumChek = document.querySelector('.sum-chek').innerHTML;
+  sumChek = Number(sumChek);
+  chekItemsDebit.push(sumChek);//список хранящий суммы всех чеков
+  let sum = 0;
+  chekItemsDebit.forEach((s) => {
+    sum += s;
+  });
+  showItogDebit.innerHTML = sum;
+  //после закрытия чека, визаульную часть корзины/чека
+  myUl.innerHTML = '';
+  document.querySelector('.sum-chek').innerHTML = '';
+  addGoodsForOtchet();//добавил все позиции в обьект для отчета по блюдам
+  chek = {};//отчистил чек/корзину
+}
 
 
 function addCash(){
+  //элемент для отображения итога за смену (наличных)
   let showItogNal = document.querySelector('.itog-nal');
+  //элемент который транслирует итоговую сумму чека
   let sumChek = document.querySelector('.sum-chek').innerHTML;
   sumChek = Number(sumChek);
-  chekItemsNal.push(sumChek);
+  chekItemsNal.push(sumChek);//список хранящий суммы всех чеков
   let sum = 0;
   chekItemsNal.forEach((s) => {
     sum += s;
   });
   showItogNal.innerHTML = sum;
+  //после закрытия чека, визаульную часть корзины/чека
   myUl.innerHTML = '';
   document.querySelector('.sum-chek').innerHTML = '';
   addGoodsForOtchet();//добавил все позиции в обьект для отчета по блюдам
@@ -121,16 +143,14 @@ function addGoodsForOtchet(){
   for(let i in chek){
     //пробегаюсь по обьекту чека/корзины и добавляю в главный обьект
     if (goodsForOtchet[i] != undefined){
-      //если в глобальном обьекте уже существует позиция, то прибавляю количество
+      //если в главном обьекте уже существует позиция, то прибавляю количество
       goodsForOtchet[i] += chek[i];
     }
     else{
       goodsForOtchet[i] = chek[i];
     }
   }
-  // for (let k in goods){
-  //   console.log(`${k} - ${goods[k]}`)
-  // }
+
   console.log(chek)
   console.log(goodsForOtchet)
 }
@@ -142,4 +162,9 @@ function showModal(){
 
 function closeModal(){
   document.querySelector('.modal').style.display = 'none';
+}
+
+//функуия показывающая отчет по блюдам
+function showOtchetOfGoods(){
+  console.log(goodsForOtchet);
 }
